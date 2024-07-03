@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".to_sell.Add_product.Add_Product">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add New Products"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:textSize="35sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_imgs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView13"
+                app:layout_constraintVertical_bias="0.016" />
+
+            <!-- Product Information Header -->
+
+            <!-- Product Name -->
+            <Button
+                android:id="@+id/uploadImages"
+                android:backgroundTint="@color/gold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Upload Images"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.463"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/list_imgs"
+                app:layout_constraintVertical_bias="0.021" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="205dp"
+                android:layout_height="42dp"
+                android:text="Product Information"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/uploadImages"
+                app:layout_constraintVertical_bias="0.046" />
+
+            <EditText
+                android:id="@+id/productName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Product Name"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView14"
+                app:layout_constraintVertical_bias="0.02"
+                app:layout_constraintWidth_default="wrap"
+                app:layout_constraintWidth_max="300dp" />
+
+
+            <!-- Product Description -->
+
+            <EditText
+                android:id="@+id/description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Product Description"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.117"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productName"
+                app:layout_constraintVertical_bias="0.01"
+                app:layout_constraintWidth_default="wrap"
+                app:layout_constraintWidth_max="300dp" />
+
+
+            <!-- Category -->
+            <Spinner
+                android:id="@+id/category"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
+                android:outlineSpotShadowColor="@color/grey"
+                android:outlineAmbientShadowColor="@color/grey"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.083"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/description"
+                app:layout_constraintVertical_bias="0.01"
+                app:layout_constraintWidth_default="wrap"
+                app:layout_constraintWidth_max="300dp" />
+
+            <!-- Brand -->
+            <EditText
+                android:id="@+id/brand"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Brand"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.07"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/category"
+                app:layout_constraintVertical_bias="0.01"
+                app:layout_constraintWidth_default="wrap"
+                app:layout_constraintWidth_max="300dp" />
+
+            <!-- Price -->
+            <EditText
+                android:id="@+id/price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Price"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
+                android:inputType="numberDecimal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.07"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/brand"
+                app:layout_constraintVertical_bias="0.01"
+                app:layout_constraintWidth_default="wrap"
+                app:layout_constraintWidth_max="300dp" />
+
+            <!-- Quantity -->
+            <EditText
+                android:id="@+id/quantity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Quantity"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
+                android:inputType="number"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.081"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/price"
+                app:layout_constraintVertical_bias="0.01"
+                app:layout_constraintWidth_default="wrap"
+                app:layout_constraintWidth_max="300dp" />
+
+            <!-- Remise -->
+            <EditText
+                android:id="@+id/remise2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Remise"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
+                android:inputType="number"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.081"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/quantity"
+                app:layout_constraintVertical_bias="0.01"
+                app:layout_constraintWidth_default="wrap"
+                app:layout_constraintWidth_max="300dp" />
+
+            <!-- Shipping Information-->
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="205dp"
+                android:layout_height="42dp"
+                android:text="Shipping Information"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/remise2"
+                app:layout_constraintVertical_bias="0.1" />
+
+            <EditText
+                android:id="@+id/weight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Weight Kg"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
+                android:inputType="numberDecimal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.07"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView15"
+                app:layout_constraintVertical_bias="0.02"
+                app:layout_constraintWidth_default="wrap"
+                app:layout_constraintWidth_max="300dp" />
+
+            <!-- Dimensions -->
+            <EditText
+                android:id="@+id/dimensions"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Dimensions m3"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
+                android:inputType="numberDecimal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.07"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/weight"
+                app:layout_constraintVertical_bias="0.01"
+                app:layout_constraintWidth_default="wrap"
+                app:layout_constraintWidth_max="300dp" />
+
+            <!-- Shipping Cost -->
+            <EditText
+                android:id="@+id/shippingCost"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Shipping Cost"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
+                android:inputType="numberDecimal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.07"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dimensions"
+                app:layout_constraintVertical_bias="0.01"
+                app:layout_constraintWidth_default="wrap"
+                app:layout_constraintWidth_max="300dp" />
+
+            <!-- Inventory Management -->
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="205dp"
+                android:layout_height="42dp"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
+                android:text="Inventory Management"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shippingCost"
+                app:layout_constraintVertical_bias="0.1" />
+
+            <!-- Stock Level -->
+            <EditText
+                android:id="@+id/stockLevel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Stock Level"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
+                android:inputType="number"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.07"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView16"
+                app:layout_constraintVertical_bias="0.02"
+                app:layout_constraintWidth_default="wrap"
+                app:layout_constraintWidth_max="300dp" />
+
+            <!-- Min Threshold -->
+            <EditText
+                android:id="@+id/minThreshold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Min Threshold"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
+                android:inputType="number"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.07"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stockLevel"
+                app:layout_constraintVertical_bias="0.01"
+                app:layout_constraintWidth_default="wrap"
+                app:layout_constraintWidth_max="300dp" />
+
+            <!-- Upload Images Button -->
+
+            <Button
+                android:id="@+id/savePro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/save_product"
+                android:backgroundTint="@color/gold"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/minThreshold"
+                app:layout_constraintVertical_bias="0.2" />
+
+            <FrameLayout
+                android:id="@+id/container1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_corner"
+                tools:layout_editor_absoluteY="452dp">
+
+            </FrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
