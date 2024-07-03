@@ -1,4 +1,4 @@
-package com.example.ecomapp.to_sell.View_products
+package com.example.ecomapp.sellersPages.View_products
 
 import android.content.Context
 import android.content.Intent
@@ -17,7 +17,7 @@ import com.example.ecomapp.database.Image_DB
 import com.example.ecomapp.database.PanierProducts_DB
 import com.example.ecomapp.database.Rate_DB
 import com.example.ecomapp.productPage.Product_Pour_Customer
-import com.example.ecomapp.to_sell.Add_product.Add_Product
+import com.example.ecomapp.sellersPages.Add_Product.Add_Product
 import com.squareup.picasso.Picasso
 
 class Adapter_Seller_Products(private val userE:String, private val context: Context, private val dataList: MutableList<Product>) :

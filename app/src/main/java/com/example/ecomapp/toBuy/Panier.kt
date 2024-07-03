@@ -20,7 +20,7 @@ import com.example.ecomapp.database.Product
 import com.example.ecomapp.database.Products_DB
 import com.example.ecomapp.home_pour_visiteur.Home_pour_Visiteur
 import com.example.ecomapp.inscrip.UserSessionManager
-import com.example.ecomapp.to_sell.Selling
+import com.example.ecomapp.sellersPages.Selling
 
 class Panier : AppCompatActivity() {
 

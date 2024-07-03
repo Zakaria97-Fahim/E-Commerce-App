@@ -1,4 +1,4 @@
-package com.example.ecomapp.to_sell.Add_product
+package com.example.ecomapp.sellersPages.Add_Product
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

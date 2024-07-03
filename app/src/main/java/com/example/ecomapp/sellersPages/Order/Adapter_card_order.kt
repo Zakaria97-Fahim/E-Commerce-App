@@ -1,4 +1,4 @@
-package com.example.ecomapp.to_sell.Order
+package com.example.ecomapp.sellersPages.Order
 
 import android.content.Context
 import android.content.Intent

@@ -17,7 +17,7 @@ import com.example.ecomapp.database.PanierProducts_DB
 import com.example.ecomapp.database.Products_DB
 import com.example.ecomapp.home_pour_visiteur.Home_pour_Visiteur
 import com.example.ecomapp.inscrip.UserSessionManager
-import com.example.ecomapp.to_sell.Selling
+import com.example.ecomapp.sellersPages.Selling
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.format.DateTimeParseException

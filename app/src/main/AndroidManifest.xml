@@ -16,7 +16,7 @@
             android:name=".productPage.Product_Pour_Visiteur"
             android:exported="false" />
         <activity
-            android:name=".to_sell.Order.List_of_Orders"
+            android:name=".sellersPages.Order.List_of_Orders"
             android:exported="true"/>
         <activity
             android:name=".toBuy.ToPaid"
@@ -34,13 +34,13 @@
             android:name=".customer_home.Home"
             android:exported="true" />
         <activity
-            android:name=".to_sell.Add_product.Add_Product"
+            android:name=".sellersPages.Add_Product.Add_Product"
             android:exported="true" />
         <activity
-            android:name=".to_sell.View_products.Your_Products"
+            android:name=".sellersPages.View_products.Your_Products"
             android:exported="true" />
         <activity
-            android:name=".to_sell.Selling"
+            android:name=".sellersPages.Selling"
             android:exported="true" />
         <activity
             android:name=".inscrip.Sign_up"

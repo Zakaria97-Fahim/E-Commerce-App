@@ -7,7 +7,7 @@
     android:background="@color/black"
     android:padding="15dp"
     android:layout_margin="10dp"
-    tools:context=".to_sell.Add_product.BlankFragment">
+    tools:context=".sellersPages.Add_Product.BlankFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

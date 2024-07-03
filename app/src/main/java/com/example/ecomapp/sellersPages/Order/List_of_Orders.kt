@@ -1,4 +1,4 @@
-package com.example.ecomapp.to_sell.Order
+package com.example.ecomapp.sellersPages.Order
 
 import android.content.Context
 import android.content.Intent
@@ -20,7 +20,7 @@ import com.example.ecomapp.database.Products_DB
 import com.example.ecomapp.home_pour_visiteur.Home_pour_Visiteur
 import com.example.ecomapp.inscrip.UserSessionManager
 import com.example.ecomapp.toBuy.Adapter_Searchs
-import com.example.ecomapp.to_sell.Selling
+import com.example.ecomapp.sellersPages.Selling
 
 class List_of_Orders : AppCompatActivity() {
 

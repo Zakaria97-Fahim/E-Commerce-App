@@ -1,6 +1,5 @@
 package com.example.ecomapp.productPage
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -24,7 +23,7 @@ import com.example.ecomapp.home_pour_visiteur.Adapter_images
 import com.example.ecomapp.home_pour_visiteur.Home_pour_Visiteur
 import com.example.ecomapp.inscrip.UserSessionManager
 import com.example.ecomapp.toBuy.Panier
-import com.example.ecomapp.to_sell.Selling
+import com.example.ecomapp.sellersPages.Selling
 
 class Product_Pour_Customer : AppCompatActivity() {
     private val urlList = mutableListOf<String>()

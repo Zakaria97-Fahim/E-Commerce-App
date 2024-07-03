@@ -1,4 +1,4 @@
-package com.example.ecomapp.to_sell
+package com.example.ecomapp.sellersPages
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.widget.Button
 import com.example.ecomapp.home_pour_visiteur.Home_pour_Visiteur
 import com.example.ecomapp.R
-import com.example.ecomapp.to_sell.Order.List_of_Orders
-import com.example.ecomapp.to_sell.Add_product.Add_Product
-import com.example.ecomapp.to_sell.View_products.Your_Products
+import com.example.ecomapp.sellersPages.Order.List_of_Orders
+import com.example.ecomapp.sellersPages.Add_Product.Add_Product
+import com.example.ecomapp.sellersPages.View_products.Your_Products
 
 class Selling : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

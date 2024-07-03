@@ -1,4 +1,4 @@
-package com.example.ecomapp.to_sell.Add_product
+package com.example.ecomapp.sellersPages.Add_Product
 
 import android.content.Context
 import android.content.Intent
@@ -13,7 +13,7 @@ import com.example.ecomapp.database.Products_DB
 import com.example.ecomapp.R
 import com.example.ecomapp.database.Image_DB
 import com.example.ecomapp.database.Images
-import com.example.ecomapp.to_sell.Selling
+import com.example.ecomapp.sellersPages.Selling
 
 class Add_Product : AppCompatActivity(), Url_new {
 

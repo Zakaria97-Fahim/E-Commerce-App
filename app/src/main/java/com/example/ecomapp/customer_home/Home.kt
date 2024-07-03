@@ -1,6 +1,5 @@
 package com.example.ecomapp.customer_home
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,7 +7,6 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ListView
 import android.widget.PopupMenu
@@ -24,7 +22,7 @@ import com.example.ecomapp.database.Products_DB
 import com.example.ecomapp.inscrip.UserSessionManager
 import com.example.ecomapp.toBuy.Adapter_Searchs
 import com.example.ecomapp.toBuy.Panier
-import com.example.ecomapp.to_sell.Selling
+import com.example.ecomapp.sellersPages.Selling
 
 class Home : AppCompatActivity() {
 //    private lateinit var suggestionAdapter: Adapter_Searchs
