@@ -9,7 +9,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.example.ecomapp.R
-import com.example.zms.to_sell.Add_product.Url_new
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"

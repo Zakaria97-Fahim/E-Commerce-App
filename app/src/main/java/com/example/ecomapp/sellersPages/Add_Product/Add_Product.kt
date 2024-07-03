@@ -14,7 +14,6 @@ import com.example.ecomapp.R
 import com.example.ecomapp.database.Image_DB
 import com.example.ecomapp.database.Images
 import com.example.ecomapp.to_sell.Selling
-import com.example.zms.to_sell.Add_product.Url_new
 
 class Add_Product : AppCompatActivity(), Url_new {
 
