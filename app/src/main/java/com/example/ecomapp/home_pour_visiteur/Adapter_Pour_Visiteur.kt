@@ -68,8 +68,8 @@ class Adapter_Pour_Visiteur(private val context: Context, private val dataList: 
         val Product = dataList[position]
 
         holder.name.text = Product.Name
-        holder.price.text = "${Product.Price}"
-        holder.remise.text = "${Product.remise}"
+        holder.price.text = "${Product.Price} DH"
+        holder.remise.text = "${Product.remise} %"
         holder.reviews.rating = Product.review.toFloat()
 
         Picasso.get()
