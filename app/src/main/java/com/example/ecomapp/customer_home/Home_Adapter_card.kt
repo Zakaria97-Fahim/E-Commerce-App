@@ -78,7 +78,7 @@ class Home_Adapter_card(private val context: Context, private val dataList: Muta
         val Product = dataList[position]
 
         holder.name.text = Product.Name
-        holder.price.text = "${Product.Price}"
+        holder.price.text = "${Product.Price} DH"
         holder.remise.text = "- ${Product.remise} %"
         holder.reviews.rating = Product.review.toFloat()
 
