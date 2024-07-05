@@ -63,7 +63,7 @@ class ToPaid : AppCompatActivity() {
          address = findViewById(R.id.Address)
          prixT = findViewById(R.id.prixTotal)
 
-        prixT.text = (prT * quant * remise/100).toString()
+        prixT.text = (prT * quant * (100-remise)/100).toString() + " DH"
         val save: Button = findViewById(R.id.save)
 
         save.setOnClickListener {
