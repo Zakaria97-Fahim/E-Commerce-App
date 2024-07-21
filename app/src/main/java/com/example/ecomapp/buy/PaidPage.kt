@@ -77,10 +77,6 @@ class PaidPage : AppCompatActivity() {
         //calculer total Price must paid
         prixT.text = (prT * quant * (100-remise)/100).toString() + "DH"
 
-<<<<<<< HEAD:app/src/main/java/com/example/ecomapp/buy/PaidPage.kt
-=======
-        prixT.text = (prT * quant * (100-remise)/100).toString() + " DH"
->>>>>>> e8073d14cd90b09bf2178d6d7a61515e85187473:app/src/main/java/com/example/ecomapp/toBuy/ToPaid.kt
         val save: Button = findViewById(R.id.save)
 
         save.setOnClickListener {
