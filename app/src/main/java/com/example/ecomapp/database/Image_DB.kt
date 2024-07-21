@@ -8,19 +8,18 @@ import android.database.sqlite.SQLiteOpenHelper
 class Image_DB(context: Context) : SQLiteOpenHelper(context, "DB_Images", null, 1) {
 
     override fun onCreate(db: SQLiteDatabase) {
-        db.execSQL("CREATE TABLE DB_Images (Email TEXT, Id INTEGER PRIMARY KEY, Img1 TEXT , Img2 TEXT , Img3 TEXT,Img4 TEXT,Img5 TEXT, Img6 TEXT, Img7 TEXT, Img8 TEXT, Img9 TEXT, Img10 TEXT )")
+        db.execSQL("CREATE TABLE DB_Images (SellerEmail TEXT, Id INTEGER PRIMARY KEY , Img1 TEXT , Img2 TEXT , Img3 TEXT,Img4 TEXT,Img5 TEXT, Img6 TEXT, Img7 TEXT, Img8 TEXT, Img9 TEXT, Img10 TEXT )")
     }
-
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         db.execSQL("DROP TABLE IF EXISTS DB_Images")
         onCreate(db)
     }
 
-    // Add New id
+    // Add New Product Images
     fun addIMg(img:Images): Long {
         val db = this.writableDatabase
         val values = ContentValues()
-        values.put("Email", img.email)
+        values.put("SellerEmail", img.email)
         values.put("Id", img.id)
 
         values.put("Img1", img.img1)
@@ -36,17 +35,20 @@ class Image_DB(context: Context) : SQLiteOpenHelper(context, "DB_Images", null, 
 
         return db.insert("DB_Images", null, values)
     }
-    //Delete Product ----------------------------------------------------------------------------------
-    fun delete(id: Int, email: String): Boolean {
+
+
+    // Delete Product Images
+    fun deleteIMG(id: Int, email: String): Boolean {
         val db = this.readableDatabase
-        val query = "DELETE FROM DB_Images WHERE Id = ? AND Email = ?"
+        val query = "DELETE FROM DB_Images WHERE Id = ? AND SellerEmail = ?"
         val cursor = db.rawQuery(query, arrayOf(id.toString() , email))
         val exists = cursor.count > 0
         cursor.close()
         return exists
     }
-    //Update----------------------------------------------------------------------------------------
-    fun upIMg(img: Images, id: Int, email: String) {
+
+    //Update Product Images
+    fun updateIMg(img: Images, id: Int, email: String) {
         val db = this.writableDatabase
         val values = ContentValues()
 
@@ -62,7 +64,7 @@ class Image_DB(context: Context) : SQLiteOpenHelper(context, "DB_Images", null, 
         values.put("Img10", img.img10)
 
         // Define the WHERE clause to specify which row(s) to update
-        val whereClause = "Id = ? AND Email = ?"
+        val whereClause = "Id = ? AND SellerEmail = ?"
         val whereArgs = arrayOf(id.toString(), email)
 
         // Execute the update query
@@ -70,44 +72,46 @@ class Image_DB(context: Context) : SQLiteOpenHelper(context, "DB_Images", null, 
         db.close()
     }
 
-    // Check if Email exists
+    // Check if Email exists ?
     fun checkIfEmailExists(userEmail: String): Boolean {
         val db = this.readableDatabase
-        val query = "SELECT * FROM DB_Images WHERE UserEmail = ?"
+        val query = "SELECT * FROM DB_Images WHERE SellerEmail = ?"
         val cursor = db.rawQuery(query, arrayOf(userEmail))
         val exists = cursor.count > 0
         cursor.close()
         return exists
     }
 
-    fun getAll_iP(id:Int, email: String): ArrayList<Images> {
-        val imageList = ArrayList<Images>()
+    // get Product images
+    fun getAllProductImages(id: Int, email: String): ArrayList<String> {
+
+        var imagesList : ArrayList<String> = arrayListOf()
+
         val db = this.readableDatabase
 
-        val query = "SELECT * FROM DB_Images WHERE Id = ? AND Email = ?"
-        val cursor = db.rawQuery(query, arrayOf(id.toString() , email))
+        val query = "SELECT * FROM DB_Images WHERE Id = ? AND SellerEmail = ?"
 
-        if (cursor.moveToFirst()) {
-            do {
-                val email = cursor.getString(0)
-                val id = cursor.getInt(1)
-                val img1 = cursor.getString(2)
-                val img2 = cursor.getString(3)
-                val img3 = cursor.getString(4)
-                val img4 = cursor.getString(5)
-                val img5 = cursor.getString(6)
-                val img6 = cursor.getString(7)
-                val img7 = cursor.getString(8)
-                val img8 = cursor.getString(9)
-                val img9 = cursor.getString(10)
-                val img10 = cursor.getString(11)
+        val cursor = db.rawQuery(query, arrayOf(id.toString(), email))
 
-                val imges = Images(email,id,img1,img2,img3,img4,img5,img6,img7,img8,img9,img10)
-                imageList.add(imges)
+        // Ensure cursor is not null and has data
+        if (cursor != null && cursor.moveToFirst()) {
+            val cursorEmail = cursor.getString(cursor.getColumnIndexOrThrow("SellerEmail"))
+            val cursorId = cursor.getInt(cursor.getColumnIndexOrThrow("Id"))
+            val img1 = cursor.getString(cursor.getColumnIndexOrThrow("Img1"))
+            val img2 = cursor.getString(cursor.getColumnIndexOrThrow("Img2"))
+            val img3 = cursor.getString(cursor.getColumnIndexOrThrow("Img3"))
+            val img4 = cursor.getString(cursor.getColumnIndexOrThrow("Img4"))
+            val img5 = cursor.getString(cursor.getColumnIndexOrThrow("Img5"))
+            val img6 = cursor.getString(cursor.getColumnIndexOrThrow("Img6"))
+            val img7 = cursor.getString(cursor.getColumnIndexOrThrow("Img7"))
+            val img8 = cursor.getString(cursor.getColumnIndexOrThrow("Img8"))
+            val img9 = cursor.getString(cursor.getColumnIndexOrThrow("Img9"))
+            val img10 = cursor.getString(cursor.getColumnIndexOrThrow("Img10"))
 
-            } while (cursor.moveToNext())
+            imagesList.addAll(listOf(img1, img2, img3, img4, img5, img6, img7, img8, img9, img10))
         }
-        return imageList
+        cursor?.close()
+        db.close()
+        return imagesList
     }
-
 }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".customer_home.Home">
+    tools:context=".customerHome.Home">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -24,10 +24,11 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:queryHint="@string/search"
+            android:inputType="text"
             />
 
         <ImageButton
-            android:id="@+id/shopcard"
+            android:id="@+id/shoppingCart"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_weight="1"

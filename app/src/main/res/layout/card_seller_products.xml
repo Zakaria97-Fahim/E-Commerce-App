@@ -10,7 +10,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/gold"
+        app:cardBackgroundColor="@color/black"
         android:layout_margin="15dp"
         android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
-            android:background="@drawable/rounded_corner">
+            android:background="@drawable/rounded_gold_corner">
 
             <ImageView
                 android:id="@+id/image3"
@@ -39,9 +39,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
-                android:backgroundTint="@color/gold"
+                android:backgroundTint="@color/black"
                 android:text="@string/modify"
-                android:textColor="@color/black"
+                android:textColor="@color/gold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.119"
@@ -53,9 +53,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
-                android:backgroundTint="@color/gold"
+                android:backgroundTint="@color/black"
                 android:text="@string/delete"
-                android:textColor="@color/black"
+                android:textColor="@color/gold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.916"

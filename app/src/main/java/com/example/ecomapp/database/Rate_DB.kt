@@ -17,7 +17,7 @@ class Rate_DB(context: Context) : SQLiteOpenHelper(context, "Rates_Table", null,
         onCreate(db)
     }
 
-    // Add New id
+    // Add New Rate
     fun addRate(rate: Rates): Long {
         val db = this.writableDatabase
         val values = ContentValues()
@@ -29,8 +29,13 @@ class Rate_DB(context: Context) : SQLiteOpenHelper(context, "Rates_Table", null,
 
         return db.insert("Rates_Table", null, values)
     }
-
-    //Delete ---------------------------------------------------------------------------------------
+    // Update Rate
+    fun updateRate(id: Int, seller: String, user: String, rate: Double) {
+        val db = this.writableDatabase
+        val query = "UPDATE Rates_Table SET Rate = ? WHERE Id = ? AND sellerEmail = ?AND userEmail = ?"
+        db.execSQL(query, arrayOf(rate, id.toString(), seller, user))
+    }
+    // Delete the Rate
     fun deleteRate(id: Int, sellerEmail: String, userEmail: String): Boolean {
         val db = this.readableDatabase
         val query = "DELETE FROM Rates_Table WHERE Id = ? AND sellerEmail = ? AND userEmail = ?"
@@ -39,14 +44,9 @@ class Rate_DB(context: Context) : SQLiteOpenHelper(context, "Rates_Table", null,
         cursor.close()
         return exists
     }
-    // modify rates
-    fun modifyRates(id: Int, seller: String, user: String, rate: Double) {
-        val db = this.writableDatabase
-        val query = "UPDATE Rates_Table SET Rate = ? WHERE Id = ? AND sellerEmail = ?AND userEmail = ?"
-        db.execSQL(query, arrayOf(rate, id.toString(), seller, user))
-    }
 
-    fun getAll(): ArrayList<Rates> {
+    // Get All Rates
+    fun getAllRates(): ArrayList<Rates> {
         val rList = ArrayList<Rates>()
         val db = this.readableDatabase
         val cursor = db.rawQuery("SELECT * FROM Rates_Table", null)
@@ -64,4 +64,5 @@ class Rate_DB(context: Context) : SQLiteOpenHelper(context, "Rates_Table", null,
         }
         return rList
     }
+
 }

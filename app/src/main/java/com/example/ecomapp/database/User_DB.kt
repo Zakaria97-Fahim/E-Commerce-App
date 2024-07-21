@@ -16,8 +16,8 @@ class User_DB(context : Context ) : SQLiteOpenHelper(context,"DB_Users",null,1) 
         onCreate(db)
     }
 
-    // Add New User ------------------------------------------------------------------------------------
-    fun ajouterUser(user : User):Long {
+    // Add New User
+    fun addUser(user : User):Long {
 
         val db = this.writableDatabase
         val values = ContentValues()
@@ -29,7 +29,7 @@ class User_DB(context : Context ) : SQLiteOpenHelper(context,"DB_Users",null,1) 
         return db.insert("DB_Users", null, values)
     }
 
-    // Check if Email exists ---------------------------------------------------------------------------
+    // Check if Email exists ?
     fun checkIfEmailExists(email: String): Boolean {
 
         val db = this.readableDatabase
@@ -41,7 +41,7 @@ class User_DB(context : Context ) : SQLiteOpenHelper(context,"DB_Users",null,1) 
         return exists
     }
 
-    // Check if Passwrod exists ---------------------------------------------------------------------------
+    // Check if Passwrod exists ?
     fun checkIfPasswrdExists(email: String, password: String): Boolean {
 
         val db = this.readableDatabase
@@ -53,8 +53,8 @@ class User_DB(context : Context ) : SQLiteOpenHelper(context,"DB_Users",null,1) 
         return exists
     }
 
-    // We dont use it yet ------------------------------------------------------------------------------
-    fun getAll():ArrayList<User> {
+    // We dont use it yet
+    fun getAllUser():ArrayList<User> {
 
         val UsersList = ArrayList<User>()
 
@@ -76,5 +76,4 @@ class User_DB(context : Context ) : SQLiteOpenHelper(context,"DB_Users",null,1) 
         }
         return UsersList
     }
-//--------------------------------------------------------------------------------------------------
 }

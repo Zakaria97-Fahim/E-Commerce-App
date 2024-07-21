@@ -57,7 +57,7 @@ class Rate_Fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val v = inflater.inflate(R.layout.fragment_rate, containerRate, false)
+        val v = inflater.inflate(R.layout.fragment_to_rate, containerRate, false)
         val closeF = v.findViewById<Button>(R.id.delrate)
         val addR =  v.findViewById<Button>(R.id.addrate)
 
@@ -85,7 +85,7 @@ class Rate_Fragment : Fragment() {
         //------------------------------------------------------------------------------------------
 
         val db = Rate_DB(requireContext())
-        val allRates = db.getAll()
+        val allRates = db.getAllRates()
 
         val sharedPref = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val userEmail = sharedPref.getString("email", null).toString()
@@ -94,7 +94,7 @@ class Rate_Fragment : Fragment() {
         closeF.setOnClickListener {
             if (ratingBar.rating == 0.0F){
                 db.deleteRate(param1, param2.toString(),userEmail)
-                val i =Intent(requireContext(),Product_Pour_Customer::class.java)
+                val i =Intent(requireContext(),CustomerProduct::class.java)
                 i.putExtra("productId",param1)
                 i.putExtra("sellerEmail",param2)
                 startActivity(i)
@@ -105,8 +105,8 @@ class Rate_Fragment : Fragment() {
             for (r in allRates){
                 if (r.userEmail==userEmail && r.id==param1 && r.sellerEmail==param2){
                     val rates = ratingBar.rating
-                    db.modifyRates(param1,param2.toString(),userEmail,rates.toDouble())
-                    val i =Intent(requireContext(),Product_Pour_Customer::class.java)
+                    db.updateRate(param1,param2.toString(),userEmail,rates.toDouble())
+                    val i =Intent(requireContext(),CustomerProduct::class.java)
                     i.putExtra("productId",param1)
                     i.putExtra("sellerEmail",param2)
                     startActivity(i)
@@ -114,7 +114,7 @@ class Rate_Fragment : Fragment() {
                 }
             }
             db.addRate(r)
-            val i =Intent(requireContext(),Product_Pour_Customer::class.java)
+            val i =Intent(requireContext(),CustomerProduct::class.java)
             i.putExtra("productId",param1)
             i.putExtra("sellerEmail",param2)
             startActivity(i)

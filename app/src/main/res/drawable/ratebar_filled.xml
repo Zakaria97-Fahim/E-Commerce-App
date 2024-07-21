@@ -4,16 +4,16 @@
     <item
         android:state_pressed="true"
         android:state_window_focused="true"
-        android:drawable="@drawable/fillimage" />
+        android:drawable="@drawable/start_fill2" />
 
     <item android:state_focused="true"
         android:state_window_focused="true"
-        android:drawable="@drawable/fillimage" />
+        android:drawable="@drawable/start_fill2" />
 
     <item
         android:state_selected="true"
         android:state_window_focused="true"
-        android:drawable="@drawable/fillimage" />
+        android:drawable="@drawable/start_fill2" />
 
-    <item android:drawable="@drawable/fillimage" />
+    <item android:drawable="@drawable/start_fill2" />
 </selector>

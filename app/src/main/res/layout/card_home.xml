@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        app:cardBackgroundColor="@color/gold"
+        app:cardBackgroundColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -19,7 +19,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_corner"
+            android:background="@drawable/rounded_gold_corner"
             >
 
             <Button
@@ -28,7 +28,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:layout_marginBottom="16dp"
-                android:backgroundTint="@color/gold"
+                android:backgroundTint="@color/black"
+                android:textColor="@color/gold"
                 android:text="@string/add_to_panier"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -88,7 +89,9 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
+                android:padding="5dp"
                 android:orientation="vertical"
+                android:background="@drawable/round_black_corner"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/image1"
                 app:layout_constraintTop_toBottomOf="@+id/name1">
@@ -98,7 +101,6 @@
                     style="@style/RatingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:layout_margin="0dp"
                     android:layout_weight="1"
                     android:background="@color/wh"
                     android:isIndicator="true"

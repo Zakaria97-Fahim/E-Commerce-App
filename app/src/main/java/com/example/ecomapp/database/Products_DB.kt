@@ -7,12 +7,15 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-class Products_DB(context : Context ) : SQLiteOpenHelper(context,"Products_table",null,1) {
+class Products_DB(context : Context ) : SQLiteOpenHelper(context,"Products_table",null, 1) {
 
     override fun onCreate(db: SQLiteDatabase) {
-        db.execSQL("CREATE TABLE Products_table ( Email TEXT , Id INTEGER PRIMARY KEY, Name TEXT, Description TEXT," +
-                " Category TEXT, Brand TEXT, Price DOUBLE, Quantity INTEGER,QAcheter INTEGER,QRest INTEGER, Weight DOUBLE, " +
-                "Dimension DOUBLE, Sh_Cost DOUBLE,  Stock_Level INTEGER, Min_Threshold INTEGER, images TEXT, Remise INTEGER, Review DOUBLE, etats TEXT)")
+        db.execSQL(
+            "CREATE TABLE Products_table ( SellerEmail TEXT , Id INTEGER PRIMARY KEY, Name TEXT, " +
+                    "Description TEXT,Category TEXT, Brand TEXT, Price DOUBLE, Quantity INTEGER," +
+                    "QAcheter INTEGER,QRest INTEGER, Weight DOUBLE, Dimension DOUBLE, " +
+                    "Sh_Cost DOUBLE,  Stock_Level INTEGER, Min_Threshold INTEGER, Remise INTEGER, " +
+                    "Review DOUBLE, etats TEXT)")
     }
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         db.execSQL("DROP TABLE IF EXISTS Products_table")
@@ -20,11 +23,11 @@ class Products_DB(context : Context ) : SQLiteOpenHelper(context,"Products_table
     }
 
 // Add New User ------------------------------------------------------------------------------------
-    fun add_Product(product : Product):Long {
+    fun addProduct(product : Product):Long {
 
         val db = this.writableDatabase
         val values = ContentValues()
-        values.put("Email", product.Email)
+        values.put("SellerEmail", product.sellerEmail)
         values.put("Id", product.Id)
         values.put("Name", product.Name)
         values.put("Description", product.Description)
@@ -39,17 +42,15 @@ class Products_DB(context : Context ) : SQLiteOpenHelper(context,"Products_table
         values.put("Sh_Cost", product.Sh_Cost)
         values.put("Stock_Level", product.Stock_Level)
         values.put("Min_Threshold ", product.Min_Threshold)
-        values.put("images", product.images)
         values.put("Remise", product.remise)
         values.put("Review", product.review)
         values.put("etats", product.etats)
 
-    // Insert the new record
         return db.insert("Products_table", null, values)
     }
 
-    // update Product-------------------------------------------------------------------------------
-    fun update(product: Product, id: Int, email: String) {
+    // Update Product
+    fun updateProduct(product: Product, id: Int, email: String) {
         val db = this.writableDatabase
         val values = ContentValues()
 
@@ -66,13 +67,12 @@ class Products_DB(context : Context ) : SQLiteOpenHelper(context,"Products_table
         values.put("Sh_Cost", product.Sh_Cost)
         values.put("Stock_Level", product.Stock_Level)
         values.put("Min_Threshold ", product.Min_Threshold)
-        values.put("images", product.images)
         values.put("Remise", product.remise)
         values.put("Review", product.review)
         values.put("etats", product.etats)
 
         // Define the WHERE clause to specify which row(s) to update
-        val whereClause = "Id = ? AND Email = ?"
+        val whereClause = "Id = ? AND SellerEmail = ?"
         val whereArgs = arrayOf(id.toString(), email)
 
         // Execute the update query
@@ -80,28 +80,40 @@ class Products_DB(context : Context ) : SQLiteOpenHelper(context,"Products_table
         db.close()
     }
 
-    // Update Etats  --------------------------------------------------------------------------
-    fun modify(id: Int, email: String, newEtats: String) {
+    // Delete Product
+    fun deleteProduct(id: Int, email: String): Boolean {
+        val db = this.readableDatabase
+        // Why Email ?
+        val query = "DELETE FROM Products_table WHERE Id = ? AND SellerEmail = ?"
+        val cursor = db.rawQuery(query, arrayOf(id.toString() , email))
+        val exists = cursor.count > 0
+        cursor.close()
+        return exists
+    }
+
+    // Update Confirmation
+    fun modifyConfirmation(id: Int, email: String, newEtats: String) {
         val db = this.writableDatabase
-        val query = "UPDATE Products_table SET etats = ? WHERE Id = ? AND Email = ?"
+        val query = "UPDATE Products_table SET etats = ? WHERE Id = ? AND SellerEmail = ?"
         db.execSQL(query, arrayOf(newEtats, id.toString(), email))
     }
-    // Update Quantity  --------------------------------------------------------------------------
+    // Update Quantity
 
     fun modifyQuantity(id: Int, email: String, qacheter: Int) {
         val db = this.writableDatabase
-        val query = "UPDATE Products_table SET qAcheter = qAcheter + ?, QRest = QRest - ? WHERE Id = ? AND Email = ?"
+        val query = "UPDATE Products_table SET qAcheter = qAcheter + ?, QRest = QRest - ? WHERE Id = ? AND SellerEmail = ?"
         db.execSQL(query, arrayOf(qacheter, qacheter, id.toString(), email))
     }
 
 
-    // Update Reviews  --------------------------------------------------------------------------
+    // Update Reviews
     fun modifyReviews(id: Int, email: String, reviews: Double) {
         val db = this.writableDatabase
-        val query = "UPDATE Products_table SET Review = ? WHERE Id = ? AND Email = ?"
+        val query = "UPDATE Products_table SET Review = ? WHERE Id = ? AND SellerEmail = ?"
         db.execSQL(query, arrayOf(reviews, id.toString(), email))
     }
-    // Check if Id exists --------------------------------------------------------------------------
+
+    // Check if Id exists ?
     fun checkIf_ID_Exists(id : Int): Boolean {
         val db = this.readableDatabase
         val query = "SELECT * FROM Products_table WHERE Id = ?"
@@ -111,7 +123,7 @@ class Products_DB(context : Context ) : SQLiteOpenHelper(context,"Products_table
         return exists
     }
 
-    //get number of products -----------------------------------------------------------------------
+    // Get Number of Products
     fun num_of_row(): Int {
         val db = this.readableDatabase
         val query = "SELECT COUNT(*) FROM Products_table "
@@ -124,40 +136,36 @@ class Products_DB(context : Context ) : SQLiteOpenHelper(context,"Products_table
         return rows_num
     }
 
-    //Delete Product ----------------------------------------------------------------------------------
-    fun delete(id: Int, email: String): Boolean {
-        val db = this.readableDatabase
-        val query = "DELETE FROM Products_table WHERE Id = ? AND Email = ?"
-        val cursor = db.rawQuery(query, arrayOf(id.toString() , email))
-        val exists = cursor.count > 0
-        cursor.close()
-        return exists
-    }
-
-    //get seller Products  ----------------------------------------------------------------------------------
-    fun getAll_S(email: String): ArrayList<Product> {
+    // Get Seller Products
+    fun getAllSellerProducts(email: String): ArrayList<Product> {
 
         val db = this.readableDatabase
-        val query = "SELECT * FROM Products_table WHERE Email = ?"
+        val query = "SELECT * FROM Products_table WHERE SellerEmail = ?"
         val cursor = db.rawQuery(query, arrayOf(email))
 
         return products(cursor)
-
     }
-    // get All Products --------------------------------------------------------------------------
-    fun getAll():ArrayList<Product> {
+//    fun getSpecificProduct(id: Int, email: String): Product{
+//        val db = this.readableDatabase
+//        val query = "SELECT * FROM Products_table WHERE Id = ?"
+//        val cursor = db.rawQuery(query, arrayOf(id))
+//    }
 
+    // get All Products // reWrite simple!!!
+    fun getAllProducts():ArrayList<Product> {
         val db = this.readableDatabase
         val cursor = db.rawQuery("SELECT * FROM Products_table", null)
         return products(cursor)
     }
+
 //--------------------------------------------------------------------------------------------------
     @SuppressLint("Range")
+    // why usign list instead of object Product() ?
     fun products(cursor: Cursor):ArrayList<Product>{
         val productList = ArrayList<Product>()
         while (cursor.moveToNext()) {
             val product = Product(
-                cursor.getString(cursor.getColumnIndex("Email")),
+                cursor.getString(cursor.getColumnIndex("SellerEmail")),
                 cursor.getInt(cursor.getColumnIndex("Id")),
                 cursor.getString(cursor.getColumnIndex("Name")),
                 cursor.getString(cursor.getColumnIndex("Description")),
@@ -172,7 +180,6 @@ class Products_DB(context : Context ) : SQLiteOpenHelper(context,"Products_table
                 cursor.getDouble(cursor.getColumnIndex("Sh_Cost")),
                 cursor.getInt(cursor.getColumnIndex("Stock_Level")),
                 cursor.getInt(cursor.getColumnIndex("Min_Threshold")),
-                cursor.getString(cursor.getColumnIndex("images")),
                 cursor.getInt(cursor.getColumnIndex("Remise")),
                 cursor.getDouble(cursor.getColumnIndex("Review")),
                 cursor.getString(cursor.getColumnIndex("etats"))

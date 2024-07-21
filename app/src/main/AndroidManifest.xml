@@ -13,43 +13,43 @@
         android:theme="@style/Theme.EcomApp"
         tools:targetApi="31">
         <activity
-            android:name=".productPage.Product_Pour_Visiteur"
+            android:name=".productPage.VisitorProduct"
             android:exported="false" />
         <activity
-            android:name=".sellersPages.Order.List_of_Orders"
+            android:name=".sell.Order.Orders"
             android:exported="true"/>
         <activity
-            android:name=".toBuy.ToPaid"
+            android:name=".buy.PaidPage"
             android:exported="true"/>
         <activity
-            android:name=".productPage.Product_Pour_Customer"
+            android:name=".productPage.CustomerProduct"
             android:exported="true" />
         <activity
-            android:name=".toBuy.Panier"
+            android:name=".buy.ProductCart"
             android:exported="true" />
         <activity
-            android:name=".customer_home.FilterActivity"
+            android:name=".FilterActivity"
             android:exported="false" />
         <activity
-            android:name=".customer_home.Home"
+            android:name=".customerHome.Home"
             android:exported="true" />
         <activity
-            android:name=".sellersPages.Add_Product.Add_Product"
+            android:name=".sell.AddProduct.AddProduct"
             android:exported="true" />
         <activity
-            android:name=".sellersPages.View_products.Your_Products"
+            android:name=".sell.View_products.SellerProducts"
             android:exported="true" />
         <activity
-            android:name=".sellersPages.Selling"
+            android:name=".sell.Selling"
             android:exported="true" />
         <activity
-            android:name=".inscrip.Sign_up"
+            android:name=".inscrip.SignUp"
             android:exported="true" />
         <activity
-            android:name=".inscrip.Log_in"
+            android:name=".inscrip.LogIn"
             android:exported="true" />
         <activity
-            android:name=".home_pour_visiteur.Home_pour_Visiteur"
+            android:name=".VisitorHome"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

@@ -1,14 +1,12 @@
 package com.example.ecomapp.productPage
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ecomapp.R
 import com.example.ecomapp.database.Rates
@@ -27,6 +25,7 @@ class Adapter_Rate(val userE:String, private val context: Context,
         val rat: RatingBar = itemView.findViewById(R.id.ratingx)
         val dateR: TextView = itemView.findViewById(R.id.date_Rate)
         val userName: TextView = itemView.findViewById(R.id.userName)
+
         var user = ""
         var seller = ""
         var idr = 0
@@ -56,11 +55,10 @@ class Adapter_Rate(val userE:String, private val context: Context,
         holder.user = rate.userEmail
 
         val db = User_DB(context)
-        //val nom = db.getAll().filter{it.email == rate.userEmail}
-        val user = db.getAll().find { it.email == rate.userEmail }
+        val user = db.getAllUser().find { it.email == rate.userEmail }
         val userName = user?.let { "${it.nom} ${it.prenom}" }
 
-        holder.userName.text = "Buy by $userName"
+        holder.userName.text = "Review by $userName"
 
     }
 
