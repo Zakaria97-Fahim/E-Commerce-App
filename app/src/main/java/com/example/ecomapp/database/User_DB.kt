@@ -28,7 +28,13 @@ class User_DB(context : Context ) : SQLiteOpenHelper(context,"DB_Users",null,1) 
 
         return db.insert("DB_Users", null, values)
     }
-
+    // Save New Code
+    fun updatePassword(email: String, password: String) {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put("Password", password)
+        db.update("users", contentValues, "email=?", arrayOf(email))
+    }
     // Check if Email exists ?
     fun checkIfEmailExists(email: String): Boolean {
 
@@ -76,4 +82,6 @@ class User_DB(context : Context ) : SQLiteOpenHelper(context,"DB_Users",null,1) 
         }
         return UsersList
     }
+
+
 }

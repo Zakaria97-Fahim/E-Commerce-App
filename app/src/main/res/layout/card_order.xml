@@ -58,6 +58,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
+                    android:padding="5dp"
+                    android:background="@drawable/round_black_corner"
                     android:orientation="vertical">
 
                     <RatingBar

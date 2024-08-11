@@ -91,6 +91,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:orientation="vertical"
+                    android:padding="5dp"
+                    android:background="@drawable/round_black_corner"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.43"
                     app:layout_constraintStart_toEndOf="@+id/image3"
